@@ -2,18 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
-	<insert id="addBasic">
+	<insert id="addBasic" parameterType="java.util.HashMap">
 		insert into member(id, pass, email) values (#{id},#{pass}, #{email})		
+		
 	</insert>
-	<insert id="addDetail">
+	<insert id="addDetail" parameterType="java.lang.String">
 		insert into detail(id) values (#{id})		
+		
 	</insert>
-	<select id="checkByIdmailAndPass" resultType="java.lang.Integer">
-		select count(*) from member where (id=#{idmail} or email=#{idmail})
-			 and pass=#{pass, jdbcType=VARCHAR }
+	<select id="checkByIdmailAndPass" parameterType="java.lang.String" resultType="java.lang.Integer">
+		select count(*) from member where (id=#{idmail} or email=#{idmail}) 
+		and pass=#{pass, jdbcType=VARCHAR }
 	</select>
-	<select id="readOne" resultType="java.util.HashMap">
+
+
+
+	<select id="readOne" parameterType="java.lang.String" resultType="java.util.HashMap">
 		select * from member where (id=#{idmail} or email=#{idmail})
 			 and pass=#{pass, jdbcType=VARCHAR }
 	</select>
+	<select id="readByGender" resultType="java.util.HashMap"> 
+	select * from detail where gender =#{gender}
+	</select>
+	
 </mapper>

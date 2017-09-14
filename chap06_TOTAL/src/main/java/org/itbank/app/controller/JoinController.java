@@ -25,6 +25,7 @@ public class JoinController {
 
 	@PostMapping("/join")
 	public String joinPostHandle(@RequestParam Map map, HttpSession session, Model model) {
+		
 		try {
 			boolean b = memberDao.addOne(map);
 			session.setAttribute("auth", "on");

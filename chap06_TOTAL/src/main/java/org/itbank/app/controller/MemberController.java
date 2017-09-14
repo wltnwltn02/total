@@ -12,8 +12,6 @@ public class MemberController {
 	public String infoHandle() { 
 		return "t_expr"; 
 		
-		
-	}
 	
-
+	}
 }
