@@ -28,6 +28,4 @@ public class IndexController {
 			mav.addObject("section", "index");
 		return mav;
 	}
-	
-	
-}
+} 

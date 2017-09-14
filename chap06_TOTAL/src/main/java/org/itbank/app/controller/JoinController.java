@@ -21,7 +21,7 @@ public class JoinController {
 	public String joinGetHandle(Model model) {
 		model.addAttribute("section", "join");
 		return "t_expr";
-	}
+	}  
 
 	@PostMapping("/join")
 	public String joinPostHandle(@RequestParam Map map, HttpSession session, Model model) {
